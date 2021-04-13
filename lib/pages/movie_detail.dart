@@ -19,9 +19,13 @@ class MovieDetail extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text(movie.title),
+        title: Text(movie.title, style: TextStyle(fontSize: 24)),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 20,
+        ),
         child: Center(
           child: Column(
             children: [
@@ -30,14 +34,95 @@ class MovieDetail extends StatelessWidget {
                 height: height / 1.5,
                 child: Image.network(path),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                movie.title,
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.5,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Container(
-                child: Text(movie.overview),
-                padding: EdgeInsets.only(left: 20, right: 20),
+                child: Text(
+                  movie.overview,
+                  style: TextStyle(
+                    fontSize: 16,
+                    height: 1.2,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                padding: EdgeInsets.only(left: 16, right: 16),
+              ),
+              SizedBox(
+                height: 20,
               ),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: Row(children: <Widget>[
+        Expanded(
+          child: RaisedButton(
+            padding: const EdgeInsets.only(
+              top: 20,
+              bottom: 20,
+            ),
+            onPressed: () {},
+            color: Theme.of(context).primaryColor,
+            textColor: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Icon(
+                  Icons.play_circle_outline,
+                ),
+                Text(
+                  'Watch Trailer',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Expanded(
+          child: RaisedButton(
+            padding: const EdgeInsets.only(
+              top: 20,
+              bottom: 20,
+            ),
+            onPressed: () {},
+            color: Theme.of(context).primaryColor,
+            textColor: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.check_circle_outline,
+                ),
+                Container(
+                  height: 5,
+                  width: 5,
+                ),
+                Text(
+                  'Buy Now',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ]),
     );
   }
 }

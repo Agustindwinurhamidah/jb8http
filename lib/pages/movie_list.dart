@@ -32,8 +32,7 @@ class _MovieListState extends State<MovieList> {
   @override
   Widget build(BuildContext context) {
     String path;
-
-    return Scaffold(
+return Scaffold(
       appBar: AppBar(
         title: Text("Popular Movies"),
       ),

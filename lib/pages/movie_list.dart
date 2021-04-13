@@ -42,7 +42,7 @@ class _MovieListState extends State<MovieList> {
             itemCount: (this.moviesCount == null) ? 0 : this.moviesCount,
             itemBuilder: (context, int position) {
               return Card(
-                color: Colors.white,
+                color: Colors.red,
                 elevation: 2.0,
                 child: ListTile(
                   leading: CircleAvatar(

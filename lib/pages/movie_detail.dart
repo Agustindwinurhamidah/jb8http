@@ -32,7 +32,7 @@ class MovieDetail extends StatelessWidget {
               ),
               Container(
                 child: Text(movie.overview),
-                padding: EdgeInsets.only(left: 16, right: 16),
+                padding: EdgeInsets.only(left: 20, right: 20),
               ),
             ],
           ),

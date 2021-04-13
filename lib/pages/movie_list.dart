@@ -36,30 +36,33 @@ return Scaffold(
       appBar: AppBar(
         title: Text("Popular Movies"),
       ),
-      body: Container(
-        child: ListView.builder(
-            itemCount: (this.moviesCount == null) ? 0 : this.moviesCount,
-            itemBuilder: (context, int position) {
-              return Card(
-                color: Colors.red,
-                elevation: 2.0,
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage:
-                        NetworkImage(imgPath + movies[position].posterPath),
-                  ),
-                  title: Text(movies[position].title),
-                  subtitle: Text(
-                      'Rating = ' + movies[position].voteAverage.toString()),
-                  onTap: () {
-                    MaterialPageRoute route = MaterialPageRoute(
-                        builder: (_) => MovieDetail(movies[position]));
-                    Navigator.push(context, route);
-                  },
+      body: GridView.builder(
+         
+          itemCount: (this.moviesCount == null) ? 0 : this.moviesCount,
+          
+          gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 2 / 3,
+            mainAxisSpacing: 20.0,
+            crossAxisSpacing: 20.0,
+            
+          ),
+          itemBuilder: (context, int position) {
+            return GridTile(
+              child: InkResponse(
+                enableFeedback: true,
+                child: Image.network(
+                  imgPath + movies[position].posterPath,
+                  fit: BoxFit.cover,
                 ),
-              );
-            }),
-      ),
+                onTap: () {
+                  MaterialPageRoute route = MaterialPageRoute(
+                      builder: (_) => MovieDetail(movies[position]));
+                  Navigator.push(context, route);
+                },
+              ),
+            );
+          }),
     );
   }
 }

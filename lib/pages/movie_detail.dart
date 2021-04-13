@@ -58,7 +58,13 @@ class MovieDetail extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                padding: EdgeInsets.only(left: 16, right: 16),
+                padding: EdgeInsets.only(left: 16, right: 16), 
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(5.0, 5.0, 280.0, 4.0),
+                child: Text('Rate : ' + movie.voteAverage.toString(),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
               ),
               SizedBox(
                 height: 20,
